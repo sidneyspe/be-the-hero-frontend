@@ -12,8 +12,8 @@ import {
   Title,
   Input,
   Button,
-  Link,
   Image,
+  GoTo,
 } from './styles';
 
 export default function Logon() {
@@ -26,10 +26,10 @@ export default function Logon() {
           <Input type="text" placeholder="E-mail" />
           <Input type="password" placeholder="Senha" />
           <Button type="submit">Entrar</Button>
-          <Link href="/register">
+          <GoTo to="/register">
             <FiLogIn size={16} color="#E02041" />
             Não tenho cadastro
-          </Link>
+          </GoTo>
         </Form>
       </Section>
 

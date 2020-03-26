@@ -9,24 +9,41 @@ export const Container = styled.div`
 
   display: flex;
   align-items: center;
+  justify-content: center;
+`;
+
+export const Content = styled.div`
+  width: 100%;
+  padding: 96px;
+  background: #f0f0f5;
+  box-shadow: 0 0 100px rgba(0, 0, 0, 0.1);
+
+  display: flex;
   justify-content: space-between;
+  align-items: center;
 `;
 
 export const Section = styled.section`
   width: 100%;
-  max-width: 350px;
-  margin-right: 30px;
+  max-width: 380px;
 `;
 
 export const Logo = styled.img``;
 
 export const Form = styled.form`
-  margin-top: 100px;
+  width: 100%;
+  max-width: 450px;
 `;
 
 export const Title = styled.h1`
   font-size: 32px;
-  margin-bottom: 22px;
+  margin: 64px 0 32px;
+`;
+
+export const Description = styled.p`
+  font-size: 18px;
+  color: #737380;
+  line-height: 32px;
 `;
 
 export const Input = styled.input`
@@ -38,6 +55,14 @@ export const Input = styled.input`
   padding: 0 24px;
 
   margin-top: 8px;
+`;
+
+export const InputGroup = styled.div`
+  display: flex;
+
+  input + input {
+    margin-left: 8px;
+  }
 `;
 
 export const Button = styled.button`
