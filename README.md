@@ -1,6 +1,6 @@
 # Be The Hero
 
-## To install dependencies run:
+## To install dependencies, run:
 
 ```
 yarn

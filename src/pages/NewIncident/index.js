@@ -14,7 +14,6 @@ import {
   Form,
   Input,
   TextArea,
-  InputGroup,
   Button,
 } from './styles';
 
