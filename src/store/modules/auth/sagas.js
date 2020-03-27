@@ -2,15 +2,17 @@
 import { takeLatest, call, put, all } from 'redux-saga/effects';
 
 import api from '~/services/api';
+import history from '~/services/history';
 
 import { signInSuccess, signFailure } from './actions';
 
 export function* signIn({ payload }) {
   try {
-    const { username, password } = payload;
+    const { logon } = payload;
+    const { email, password } = logon;
 
     const response = yield call(api.post, 'sessions', {
-      username,
+      email,
       password,
     });
 
@@ -26,6 +28,7 @@ export function* signIn({ payload }) {
     api.defaults.headers.Authorization = `Bearer ${token}`;
 
     yield put(signInSuccess(token, user));
+    history.push('/profile');
   } catch (err) {
     alert('Falha na autenticação, Erro ao logar. Verifique os dados.');
     yield put(signFailure());
