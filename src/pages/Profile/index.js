@@ -13,10 +13,11 @@ export default function Profile() {
   const dispatch = useDispatch();
 
   const data = useSelector((state) => state.profile.data);
+  const { signed } = useSelector((state) => state.auth);
 
   useEffect(() => {
-    dispatch(profileListRequest());
-  }, []);
+    if (signed) dispatch(profileListRequest());
+  }, [data]);
 
   return (
     <Container>
