@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import Header from '~/components/Header';
@@ -12,10 +13,6 @@ export default function Profile() {
   const dispatch = useDispatch();
 
   const data = useSelector((state) => state.profile.data);
-  const pages = useSelector((state) => state.profile.pages);
-  const loading = useSelector((state) => state.profile.loading);
-
-  const [search, setSearch] = useState('');
 
   useEffect(() => {
     dispatch(profileListRequest());

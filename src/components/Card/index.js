@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { FiTrash2 } from 'react-icons/fi';
 
@@ -35,3 +36,12 @@ export default function Card({ item }) {
     </Content>
   );
 }
+
+Card.propTypes = {
+  item: PropTypes.shape({
+    id: PropTypes.number,
+    title: PropTypes.string,
+    description: PropTypes.string,
+    value: PropTypes.number,
+  }).isRequired,
+};
