@@ -18,7 +18,7 @@ export default function RouteWrapper({
   }
 
   if (signed && !isPrivate) {
-    return <Redirect to="/dashborad" />;
+    return <Redirect to="/profile" />;
   }
 
   const Layout = signed ? AuthLayout : DefaultLayout;

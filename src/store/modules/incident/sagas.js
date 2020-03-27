@@ -4,6 +4,7 @@ import { takeLatest, call, put, all } from 'redux-saga/effects';
 import api from '~/services/api';
 
 import { incidentSuccess, incidentFailure } from './actions';
+import { profileSuccess } from '../profile/actions';
 
 export function* list({ payload }) {
   try {
@@ -57,10 +58,10 @@ export function* destroy({ payload }) {
 
     yield call(api.delete, `incidents/${id}`);
 
-    const result = yield call(api.get, 'incidents');
+    const result = yield call(api.get, 'profile');
     const { data, total, pages } = result.data;
 
-    yield put(incidentSuccess(data, total, pages));
+    yield put(profileSuccess(data, total, pages));
   } catch (err) {
     alert('Não foi possível deletar o caso');
     yield put(incidentFailure());
