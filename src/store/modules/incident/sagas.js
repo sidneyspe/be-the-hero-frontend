@@ -2,6 +2,7 @@
 import { takeLatest, call, put, all } from 'redux-saga/effects';
 
 import api from '~/services/api';
+import history from '~/services/history';
 
 import { incidentSuccess, incidentFailure } from './actions';
 import { profileSuccess } from '../profile/actions';
@@ -22,14 +23,16 @@ export function* list({ payload }) {
 
 export function* create({ payload }) {
   try {
-    const { name } = payload;
+    const { incident } = payload;
+    const { title, description, value, ong_id } = incident;
 
-    yield call(api.post, 'incidents', { name });
+    yield call(api.post, 'incidents', { title, description, value, ong_id });
 
-    const result = yield call(api.get, 'incidents');
+    const result = yield call(api.get, 'profile');
     const { data, total, pages } = result.data;
 
-    yield put(incidentSuccess(data, total, pages));
+    yield put(profileSuccess(data, total, pages));
+    history.push('/profile');
   } catch (err) {
     alert('Não foi possível salvar o caso');
     yield put(incidentFailure());

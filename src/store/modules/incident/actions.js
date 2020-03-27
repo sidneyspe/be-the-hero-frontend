@@ -5,17 +5,17 @@ export function incidentListRequest(search) {
   };
 }
 
-export function incidentCreateRequest(name) {
+export function incidentCreateRequest(incident) {
   return {
     type: '@incident/CREATE_REQUEST',
-    payload: { name },
+    payload: { incident },
   };
 }
 
-export function incidentEditRequest(id, name) {
+export function incidentEditRequest(id, incident) {
   return {
     type: '@incident/EDIT_REQUEST',
-    payload: { id, name },
+    payload: { id, incident },
   };
 }
 
